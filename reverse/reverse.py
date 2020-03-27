@@ -45,6 +45,12 @@ class LinkedList:
         # if we've gotten here, then the target node isn't in our list
         return False
 
-    def reverse_list(self, node, prev):
         # You must use recursion for this solution
-        pass
+    def reverse_list(self, node, prev=None):
+        if node == None:
+            return
+        if node.next_node != None:
+            self.reverse_list(node.next_node, node)
+        else:
+            self.head = node
+        node.next_node = prev
